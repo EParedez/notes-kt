@@ -1,4 +1,4 @@
-package com.eparedez.todokotlin.todokotlin
+package com.eparedez.todokotlin
 
 import org.springframework.boot.context.properties.ConfigurationProperties
 import org.springframework.boot.context.properties.ConstructorBinding
