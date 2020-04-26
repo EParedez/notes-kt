@@ -14,9 +14,10 @@ WITH replication = {
 };
 
 
-CREATE TABLE keyspacenotes.mytable (
+CREATE TABLE keyspacenotes.notes (
 	id int primary key,
-	name text
+	name text,
+    description text
 );
 ```
 
