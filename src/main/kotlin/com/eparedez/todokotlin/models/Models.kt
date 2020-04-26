@@ -9,13 +9,16 @@ import java.util.*
 
 @Table("notes")
 class Note (
-   @PrimaryKeyColumn(
+   //TODO
+   /*@PrimaryKeyColumn(
            name="id",
            ordinal = 2,
-           type = PrimaryKeyType.CLUSTERED,
+           type = PrimaryKeyType.PARTITIONED,
            ordering = Ordering.DESCENDING
    )
-   var id: UUID,
+   var id: UUID,*/
+   @PrimaryKey
+   var id: String,
    var name: String,
    var description: String
 )

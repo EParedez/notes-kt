@@ -15,8 +15,8 @@ class NotesController(private val repository: NoteRepository){
     fun findAll() = repository.findAll()
 
     @GetMapping("/{id}")
-    fun findOne(@PathVariable id: String) =
-            repository.findById(BasicMapId()) ?: //TODO
+    fun findOne(@PathVariable id: Int) =
+            repository.findById(BasicMapId.id("id",id)) ?: //TODO
             throw ResponseStatusException(HttpStatus.NOT_FOUND, "This notes does not exists")
 
 }
