@@ -15,7 +15,7 @@ import org.springframework.data.cassandra.core.mapping.SimpleUserTypeResolver
 import org.springframework.data.cassandra.repository.config.EnableCassandraRepositories
 
 @Configuration
-@EnableCassandraRepositories()
+@EnableCassandraRepositories("com.eparedez.todokotlin.repositories")
 class TodoKotlinCassandra {
 
     companion object {
