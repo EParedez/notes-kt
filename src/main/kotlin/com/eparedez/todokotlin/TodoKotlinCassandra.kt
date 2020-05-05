@@ -1,5 +1,6 @@
 package com.eparedez.todokotlin
 
+import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.data.cassandra.config.CassandraClusterFactoryBean
@@ -15,17 +16,20 @@ import org.springframework.data.cassandra.core.mapping.SimpleUserTypeResolver
 import org.springframework.data.cassandra.repository.config.EnableCassandraRepositories
 
 @Configuration
-@EnableCassandraRepositories("com.eparedez.todokotlin.repositories")
+@EnableCassandraRepositories("com.eparedez.todokotlin.models.repositories")
 class TodoKotlinCassandra {
 
     companion object {
         const val KEY_SPACE_NAME = "keyspacenotes"
     }
 
+    @Value("\${noteka.cassandra.contactpoints}")
+    lateinit var CASSANDRA_URL: String
+
     @Bean
     fun cluster() : CassandraClusterFactoryBean {
         val cluster = CassandraClusterFactoryBean()
-        cluster.setContactPoints("localhost") //TODO change to .properties
+        cluster.setContactPoints(CASSANDRA_URL) //TODO change to .properties
         cluster.setJmxReportingEnabled(false)
         return cluster
     }
