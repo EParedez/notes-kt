@@ -7,7 +7,7 @@ import java.util.*
 @Table("notes")
 class Note (
    @PrimaryKey
-   var id: UUID,
+   var id: UUID? = UUID.randomUUID(),
    var name: String,
    var description: String,
    var plain: String,
